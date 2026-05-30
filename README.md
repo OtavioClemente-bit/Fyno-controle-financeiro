@@ -1,22 +1,14 @@
 # Fyno - Controle Financeiro
 
-**Fyno** é um aplicativo de controle financeiro pessoal e acompanhamento de investimentos, criado com foco em organização, educação financeira e facilidade de uso.
+**Fyno** é um aplicativo de controle financeiro pessoal e acompanhamento de investimentos, desenvolvido em Flutter/Dart com foco em organização, educação financeira e facilidade de uso.
 
-O projeto nasceu como uma solução prática para ajudar pessoas que têm dificuldade em controlar receitas, despesas, aportes e evolução patrimonial. Além do desenvolvimento técnico, o projeto também pode ser utilizado como atividade de extensão acadêmica, aproximando tecnologia e educação financeira da comunidade.
-
----
-
-## Objetivo do projeto
-
-Desenvolver uma ferramenta simples e acessível para auxiliar usuários no registro, acompanhamento e análise da sua vida financeira, incentivando hábitos de organização, planejamento e consciência sobre investimentos.
+O projeto tem como proposta ajudar usuários a registrar receitas, despesas, investimentos e movimentações financeiras, facilitando o acompanhamento da evolução patrimonial e incentivando hábitos financeiros mais conscientes.
 
 ---
 
-## Problema identificado
+## Objetivo
 
-Muitas pessoas ainda controlam suas finanças de forma manual, por anotações soltas, planilhas desorganizadas ou apenas pela memória. Isso dificulta a visualização da real situação financeira, aumenta o risco de endividamento e prejudica a construção de uma reserva ou carteira de investimentos.
-
-O Fyno busca resolver esse problema oferecendo um sistema simples para centralizar informações financeiras e facilitar a tomada de decisão.
+Desenvolver uma ferramenta simples e acessível para auxiliar pessoas da comunidade no controle financeiro pessoal, acompanhamento de investimentos e tomada de decisões mais conscientes sobre o uso do dinheiro.
 
 ---
 
@@ -24,103 +16,53 @@ O Fyno busca resolver esse problema oferecendo um sistema simples para centraliz
 
 - Cadastro de receitas e despesas
 - Cadastro de investimentos
-- Registro de aportes mensais
-- Controle de saldo
-- Visualização da carteira financeira
-- Relatórios simples
-- Histórico de movimentações
-- Interface intuitiva
-- Organização dos dados em banco de dados local
+- Controle de categorias
+- Registro de abastecimentos
+- Cadastro de veículos
+- Leitura e conferência de comprovantes
+- Relatórios financeiros
+- Acompanhamento da carteira
+- Organização dos dados em banco local
 
 ---
 
-## Tecnologias utilizadas
+## Tecnologias
 
-- Python
+- Flutter
+- Dart
 - SQLite
-- Tkinter
 - Git e GitHub
 
 ---
 
-## Estrutura sugerida do projeto
+## Estrutura do projeto
 
 ```text
-Fyno-controle-financeiro/
+lib/
 ├── app/
-│   ├── main.py
-│   ├── database.py
-│   ├── models.py
-│   ├── services.py
-│   └── interface.py
-├── docs/
-│   └── projeto-extensao.md
-├── tests/
-├── requirements.txt
-├── .gitignore
-└── README.md
+│   ├── theme/
+│   │   ├── app_theme.dart
+│   │   └── color_schemes.dart
+│   └── app.dart
+├── core/
+│   └── db/
+│       └── app_db.dart
+├── features/
+│   └── home/
+│       ├── models/
+│       ├── notifications/
+│       ├── repositories/
+│       ├── widgets/
+│       └── home_page.dart
+├── shared/
+└── main.dart
 ```
 
 ---
 
-## Como executar
+## Aplicação social
 
-Clone o repositório:
-
-```bash
-git clone https://github.com/OtavioClemente-bit/Fyno-controle-financeiro.git
-```
-
-Acesse a pasta do projeto:
-
-```bash
-cd Fyno-controle-financeiro
-```
-
-Crie um ambiente virtual:
-
-```bash
-python -m venv .venv
-```
-
-Ative o ambiente virtual no Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Instale as dependências:
-
-```bash
-pip install -r requirements.txt
-```
-
-Execute o projeto:
-
-```bash
-python app/main.py
-```
-
----
-
-## Aplicação social do projeto
-
-Este projeto pode ser utilizado em uma ação de extensão universitária voltada à educação financeira da comunidade. A proposta é apresentar uma ferramenta simples que ajude usuários a entender melhor sua organização financeira, acompanhar investimentos e desenvolver hábitos mais conscientes no uso do dinheiro.
-
----
-
-## Roadmap
-
-- [ ] Criar estrutura inicial do projeto
-- [ ] Implementar banco de dados SQLite
-- [ ] Criar tela principal
-- [ ] Implementar cadastro de transações
-- [ ] Implementar cadastro de investimentos
-- [ ] Criar relatório de saldo
-- [ ] Criar relatório de carteira
-- [ ] Testar com usuários reais
-- [ ] Coletar feedback da comunidade
-- [ ] Documentar resultados da atividade de extensão
+Este projeto pode ser utilizado como atividade de extensão universitária voltada à educação financeira da comunidade. A solução busca apoiar pessoas que ainda controlam suas finanças por anotações manuais, planilhas desorganizadas ou apenas pela memória.
 
 ---
 
