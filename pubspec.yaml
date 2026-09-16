@@ -1,0 +1,90 @@
+name: controle_financeiro
+description: "Fyno — controle financeiro pessoal com clareza."
+publish_to: 'none'
+
+version: 1.22.0+23
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  image_picker: ^1.0.7
+  sqflite: ^2.3.3
+  sqflite_common_ffi_web: ^1.1.1
+  path: ^1.9.0
+  intl: ^0.20.2
+  google_mlkit_text_recognition: ^0.14.0
+  mobile_scanner: ^7.4.0
+  webview_flutter: 4.13.1
+  # 4.10.2 remove suporte a Android < 24; mantenha o Fyno em API 21+.
+  webview_flutter_android: 4.10.1
+  http: ^1.2.2
+  html: ^0.15.4
+  permission_handler: ^11.3.1
+
+  # 🔐 Google / Drive (backup)
+  google_sign_in: ^7.2.0
+  extension_google_sign_in_as_googleapis_auth: ^3.0.0
+  googleapis: ^15.0.0
+  path_provider: ^2.1.5
+  archive: ^4.0.7
+
+  shared_preferences: ^2.5.5
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
+  sqflite_common_ffi: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/brand/fyno_mark.png
+    - assets/brand/fyno_mark_on_dark.png
+    - assets/brand/fyno_mark_compact.png
+    - assets/brand/fyno_mark_compact_on_dark.png
+    - assets/brand/fyno_splash_light.jpg
+    - assets/brand/fyno_splash_dark.jpg
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/brand/fyno_app_icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#F2FAF6"
+  adaptive_icon_foreground: "assets/brand/fyno_adaptive_foreground.png"
+  adaptive_icon_monochrome: "assets/brand/fyno_monochrome.png"
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/brand/fyno_app_icon.png"
+    background_color: "#F2FAF6"
+    theme_color: "#0B6B55"
+
+flutter_native_splash:
+  color: "#F7FAF8"
+  color_dark: "#07140F"
+  image: "assets/brand/fyno_mark.png"
+  image_dark: "assets/brand/fyno_mark_on_dark.png"
+  android: true
+  ios: true
+  web: true
+  android_gravity: center
+  ios_content_mode: center
+  android_12:
+    color: "#F7FAF8"
+    color_dark: "#07140F"
+    image: "assets/brand/fyno_mark.png"
+    image_dark: "assets/brand/fyno_mark_on_dark.png"
+    icon_background_color: "#F7FAF8"
+    icon_background_color_dark: "#07140F"

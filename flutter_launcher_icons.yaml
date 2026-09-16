@@ -1,0 +1,10 @@
+flutter_launcher_icons:
+  android: true
+  ios: false
+
+  # Obrigatório (resolve seu erro)
+  image_path: assets/icon/fyno_icon.png
+
+  # Adaptativo (Android 8+)
+  adaptive_icon_background: "#00E5A8"
+  adaptive_icon_foreground: assets/icon/fyno_adaptive_fg.png

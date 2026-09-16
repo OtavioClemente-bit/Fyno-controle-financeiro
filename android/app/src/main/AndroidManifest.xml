@@ -1,0 +1,102 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Necessário no release para NFC-e online, Google Sign-In e backup Drive. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- A câmera é usada somente pelo leitor de QR Code de cupons. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Solicitada somente quando o usuário agenda um lembrete de revisão. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Mantém o app disponível em tablets sem câmera; a galeria continua utilizável. -->
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <application
+        android:label="Fyno"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    
+        <!--
+             Serviço único e nativo. Não limite os tipos aqui: vários bancos
+             publicam transações em canais silenciosos. O filtro por banco e
+             por conteúdo é feito localmente pelo próprio serviço.
+        -->
+        <service
+            android:name="com.example.controle_financeiro.notifications.FynoNotificationListener"
+            android:label="Transações detectadas pelo Fyno"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.fyno.app.reminders.TransactionReminderReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+</application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <!-- Visibilidade limitada aos aplicativos suportados pelo seletor do Fyno. -->
+        <package android:name="com.nu.production" />
+        <package android:name="com.itau" />
+        <package android:name="com.itau.pers" />
+        <package android:name="com.itau.iti" />
+        <package android:name="com.itaucard.activity" />
+        <package android:name="br.com.bb.android" />
+        <package android:name="br.com.bb.android.pj" />
+        <package android:name="com.bradesco" />
+        <package android:name="br.com.bradesco.cartoes" />
+        <package android:name="br.com.bradesco.next" />
+        <package android:name="com.santander.app" />
+        <package android:name="com.santander.way" />
+        <package android:name="com.santandermovelempresarial.app" />
+        <package android:name="br.com.intermedium" />
+        <package android:name="br.com.gabba.Caixa" />
+        <package android:name="br.gov.caixa.superapp" />
+        <package android:name="br.gov.caixa.tem" />
+        <package android:name="br.com.gabba.CaixaTem" />
+        <package android:name="com.c6bank.app" />
+        <package android:name="com.c6bank.app.yellow" />
+        <package android:name="com.mercadopago.wallet" />
+        <package android:name="com.picpay" />
+        <package android:name="br.com.uol.ps.myaccount" />
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>
